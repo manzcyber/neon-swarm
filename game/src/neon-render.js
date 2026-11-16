@@ -1,5 +1,5 @@
-﻿export function paintScene(X, state) {
-  const {mode,p,E,B,score,best,wave,hearts,combo,mouse,up,particles,flash}=state;
+export function paintScene(X, state) {
+  const {mode,p,E,B,score,best,wave,hearts,combo,mouse,up,particles,flash,waveBanner}=state;
   X.shadowBlur=0; X.globalAlpha=1;
   X.fillStyle='#050814'; X.fillRect(0,0,1280,800);
   for(let i=0;i<150;i++){
@@ -51,5 +51,5 @@
     X.fillStyle='#050814de';X.fillRect(0,70,1280,730);X.textAlign='center';text(mode==='pause'?'PAUSED':'WAVE CLEAR',640,250,60,'#66f5ff');
     if(mode==='upgrade'){text('CHOOSE UPGRADE',640,310,22);up.forEach((u,i)=>{X.strokeStyle='#38778b';X.strokeRect(240+i*280,365,250,140);text(`${i+1}. ${u}`,365+i*280,447,23)})}
   }
-  if(flash>0){X.fillStyle=`rgba(255,65,130,${flash/24})`;X.fillRect(0,0,1280,800)}
+  if(waveBanner>0&&mode==='play'){X.textAlign='center';X.globalAlpha=Math.min(1,waveBanner/20);text('WAVE '+wave,640,135,34,'#ffe581');X.globalAlpha=1}if(flash>0){X.fillStyle=`rgba(255,65,130,${flash/24})`;X.fillRect(0,0,1280,800)}
 }

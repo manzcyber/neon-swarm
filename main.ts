@@ -1,3 +1,4 @@
+/* NEON SWARM entry for best-game-01: a wave-based neon arena shooter. This script copies the game/ and screenshots/ assets to /output and writes dossier.json through buildDossier. */
 // A working best-game-01 entry (Node 22, standard library only): the game is this directory's
 // game/ folder, plain static files a desktop browser loads offline (game/index.html and its ES
 // modules, no library and no network request), and the program hands it in. It copies game/ and
