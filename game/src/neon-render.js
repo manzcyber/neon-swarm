@@ -40,7 +40,7 @@ export function paintScene(X, state) {
   shape(p.x,p.y,angle,[[23,0],[-15,-14],[-8,0],[-15,14]],'#68f5ff');
   E.forEach((e,i)=>shape(e.x,e.y,Math.atan2(p.y-e.y,p.x-e.x),silhouettes[e.visualType??i%4],['#ff57ba','#ffe581','#ac83ff','#ff8855'][e.visualType??i%4]));
   X.lineCap='round';B.forEach(b=>{X.shadowColor='#ffe581';X.shadowBlur=14;X.strokeStyle='#fff4b0';X.lineWidth=3;X.beginPath();X.moveTo(b.x-b.vx*1.5,b.y-b.vy*1.5);X.lineTo(b.x,b.y);X.stroke()});X.shadowBlur=0;
-  particles.forEach(t=>{X.globalAlpha=t.life/24;X.fillStyle=t.color;X.fillRect(t.x,t.y,3,3)});X.globalAlpha=1;
+  particles.forEach(t=>{X.globalAlpha=t.life/24;X.fillStyle=t.color;X.shadowColor=t.color;X.shadowBlur=8;X.fillRect(t.x,t.y,3,3)});X.globalAlpha=1;X.shadowBlur=0;
   X.fillStyle='#07101ee8';X.fillRect(0,0,1280,65);X.textAlign='left';
   text(`SCORE  ${score}`,26,40,21);text(`BEST  ${best}`,230,40,18,'#709bb7');text(`WAVE  ${wave}`,430,40,21);text(`COMBO  x${combo}`,610,40,21,'#ffe581');text('HULL',980,40,16,'#709bb7');
   for(let i=0;i<3;i++){
